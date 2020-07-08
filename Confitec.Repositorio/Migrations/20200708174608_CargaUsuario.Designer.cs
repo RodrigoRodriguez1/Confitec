@@ -4,14 +4,16 @@ using Confitec.Repositorio.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Confitec.Repositorio.Migrations
 {
     [DbContext(typeof(ConfitecContext))]
-    partial class ConfitecContextModelSnapshot : ModelSnapshot
+    [Migration("20200708174608_CargaUsuario")]
+    partial class CargaUsuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +52,7 @@ namespace Confitec.Repositorio.Migrations
                         new
                         {
                             Id = 1,
-                            DataNascimento = new DateTime(2020, 7, 8, 14, 47, 54, 131, DateTimeKind.Local).AddTicks(3321),
+                            DataNascimento = new DateTime(2020, 7, 8, 14, 46, 8, 48, DateTimeKind.Local).AddTicks(5642),
                             Email = "rodrigo@rodriguez.com",
                             Escolariedade = 1,
                             Nome = "A",
@@ -59,7 +61,7 @@ namespace Confitec.Repositorio.Migrations
                         new
                         {
                             Id = 2,
-                            DataNascimento = new DateTime(2020, 7, 8, 14, 47, 54, 132, DateTimeKind.Local).AddTicks(1797),
+                            DataNascimento = new DateTime(2020, 7, 8, 14, 46, 8, 49, DateTimeKind.Local).AddTicks(4477),
                             Email = "rodrigo@teste.com",
                             Escolariedade = 1,
                             Nome = "b",
@@ -68,7 +70,7 @@ namespace Confitec.Repositorio.Migrations
                         new
                         {
                             Id = 3,
-                            DataNascimento = new DateTime(2020, 7, 8, 14, 47, 54, 132, DateTimeKind.Local).AddTicks(1906),
+                            DataNascimento = new DateTime(2020, 7, 8, 14, 46, 8, 49, DateTimeKind.Local).AddTicks(4596),
                             Email = "rodrigo@asd.com",
                             Escolariedade = 1,
                             Nome = "v",

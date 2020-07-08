@@ -1,4 +1,6 @@
+using Confitec.Dominio.BaseRepositorio;
 using Confitec.Repositorio.Context;
+using Confitec.Repositorio.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,7 @@ namespace Confitec.Web
                         options.UseSqlServer(
                             connectionString, m => m.MigrationsAssembly("Confitec.Repositorio")
                         ));
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
