@@ -7,6 +7,6 @@ namespace Confitec.Dominio.BaseRepositorio
 {
     public interface IUsuarioRepositorio : IBaseRepositorio<Usuarios>
     {
-
+        Usuarios Obter(string email);
     }
 }

@@ -16,13 +16,26 @@ namespace Confitec.Web.Controllers
         {
             _usuarioRepositorio  = usuarioRepositorio;
         }
-
         [HttpGet]
         public IActionResult Get()
         {
             try
             {
-                return Ok(_usuarioRepositorio.ObterTodos());
+                return Json(_usuarioRepositorio.ObterTodos());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost("Deletar")]
+        public IActionResult Deletar([FromBody] Usuarios usuario)
+        {
+            try
+            {
+                _usuarioRepositorio.Remover(usuario);
+                return Json(_usuarioRepositorio.ObterTodos()); 
             }
             catch (Exception ex)
             {
@@ -31,12 +44,22 @@ namespace Confitec.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]Usuarios usuario)
+        public IActionResult Post([FromBody] Usuarios usuario)
         {
             try
             {
+                //var _usuarioCadastro = _usuarioRepositorio.Obter(usuario.Email);
+               
+                if (usuario.Id > 0)
+                {
+                    _usuarioRepositorio.Atualizar(usuario);
+                }
+                else
+                {
                 _usuarioRepositorio.Adicionar(usuario);
-                return Created("api/produto", usuario);
+                }
+
+                return Ok();
             }
             catch (Exception ex)
             {

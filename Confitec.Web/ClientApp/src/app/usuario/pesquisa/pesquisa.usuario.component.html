@@ -1,0 +1,31 @@
+<h1>Usuarios</h1>
+
+<p *ngIf="!usuarios">Carregando Usuarios</p>
+
+<button class="btn btn-primary mb-2" (click)="adicionarUsuario()">Adicionar Usuario</button>
+
+
+<table class='table table-striped' *ngIf="usuarios">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Sobre Nome</th>
+      <th>Escolariedade</th>
+      <th>E-mail</th>
+      <th>Data Nascimento</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of usuarios">
+      <td>{{ u.nome}}</td>
+      <td>{{ u.sobreNome}}</td>
+      <td> {{ getEscolaridade(u.escolariedade) }}</td>
+      <td>{{ u.email}}</td>
+      <td>{{ u.dataNascimento |  date: 'dd/MM/yyyy' }}</td>
+      <td><button class="btn btn-success btn-sm" (click)="editarUsuario(u)">Editar</button></td>
+      <td><button class="btn btn-danger btn-sm" (click)="deletarUsuario(u)">Deletar</button></td>
+    </tr>
+  </tbody>
+</table>

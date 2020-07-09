@@ -27,7 +27,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\modelo\usuarios.ts" />
+    <None Remove="ClientApp\src\app\servicos\usuarios\usuario.servico.ts" />
+    <None Remove="ClientApp\src\app\usuario\pesquisa\pesquisa.usuario.component.ts" />
+    <None Remove="ClientApp\src\app\usuario\usuario.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Confitec.Repositorio\Confitec.Repositorio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\modelo\usuarios.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\servicos\usuarios\usuario.servico.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\usuario\pesquisa\pesquisa.usuario.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\usuario\usuario.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

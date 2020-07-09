@@ -1,0 +1,136 @@
+<div class="text-center">
+  <form class="form-signin" #formSign="ngForm">
+    <h1 class="h4 mb-2 login" *ngIf="usuarios.Id > 0">Cadastrar</h1>
+    <h1 class="h4 mb-2 login" *ngIf="usuarios.Id  0">Atualizar Usuario</h1>
+
+
+    <label for="inputNome" class="sr-only">Nome</label>
+    <input type="text" id="inputNome"
+           name="Nome" placeholder="Nome"
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':Nome.invalid && (Nome.dirty || Nome.touched),
+            'is-valid':Nome.valid && (Nome.dirty || Nome.touched)
+           }"
+           [(ngModel)]="usuarios.nome"
+           #Nome="ngModel"
+           Nome
+           required />
+
+    <div class="invalid-feedback mb-2" *ngIf="Nome.invalid && (Nome.dirty || Nome.touched)">
+      <div *ngIf="Nome.errors.required">
+        Nome é de preenchimento obrigatório
+      </div>
+      <div *ngIf="Nome.errors.Nome">
+        Nome está no formato inválido
+      </div>
+    </div>
+
+    <label for="inputSobreNome" class="sr-only">Sobre Nome</label>
+    <input type="text" id="inputSobreNome"
+           name="SobreNome" placeholder="Sobre Nome"
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':SobreNome.invalid && (SobreNome.dirty || SobreNome.touched),
+            'is-valid':SobreNome.valid && (SobreNome.dirty || SobreNome.touched)
+           }"
+           [(ngModel)]="usuarios.sobreNome"
+           #SobreNome="ngModel"
+           SobreNome
+           required />
+
+    <div class="invalid-feedback mb-2" *ngIf="SobreNome.invalid && (SobreNome.dirty || SobreNome.touched)">
+      <div *ngIf="SobreNome.errors.required">
+        SobreNome é de preenchimento obrigatório
+      </div>
+      <div *ngIf="SobreNome.errors.SobreNome">
+        SobreNome está no formato inválido
+      </div>
+    </div>
+
+    <label for="inputEmail" class="sr-only">E-mail</label>
+    <input type="email" id="inputE-mail"
+           name="Email" placeholder="E-mail"
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':Email.invalid && (Email.dirty || Email.touched),
+            'is-valid':Email.valid && (Email.dirty || Email.touched)
+           }"
+           [(ngModel)]="usuarios.email"
+           #Email="ngModel"
+           Email
+           required />
+
+    <div class="invalid-feedback mb-2" *ngIf="Email.invalid && (Email.dirty || Email.touched)">
+      <div *ngIf="Email.errors.required">
+        E-mail é de preenchimento obrigatório
+      </div>
+      <div *ngIf="Email.errors.Email">
+        E-mail está no formato inválido
+      </div>
+    </div>
+
+    <label for="inputDataNascimento" class="sr-only">Data Nascimento</label>
+    <input type="date" id="inputDataNascimento"
+           name="DataNascimento" placeholder="Data Nascimento"
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':DataNascimento.invalid && (DataNascimento.dirty || DataNascimento.touched),
+            'is-valid':DataNascimento.valid && (DataNascimento.dirty || DataNascimento.touched)'
+           }"
+           [(ngModel)]="usuarios.dataNascimento"
+           #DataNascimento="ngModel"
+           DataNascimento 
+           *ngIf" value="{{ usuarios.dataNascimento | date: 'yyyy-MM-dd' }}"" 
+           required />
+
+    <div class="invalid-feedback mb-2" *ngIf="DataNascimento.invalid && (DataNascimento.dirty || DataNascimento.touched)">
+      <div *ngIf="DataNascimento.errors.required">
+        DataNascimento é de preenchimento obrigatório
+      </div>
+      <div *ngIf="DataNascimento.errors.DataNascimento">
+        DataNascimento está no formato inválido
+      </div>
+    </div>
+
+    <label for="inputEscolariedade" class="sr-only">Escolariedade</label>
+    <select class="form-control mb-2" id="inputEscolariedade"
+            name="Escolariedade" placeholder="Escolariedade"
+            [ngClass]="{
+          'is-invalid':Escolariedade.invalid && (Escolariedade.dirty || Escolariedade.touched),
+          'is-valid':Escolariedade.valid && (Escolariedade.dirty || Escolariedade.touched)
+         }"
+            [(ngModel)]="usuarios.escolariedade"
+            #Escolariedade="ngModel"
+            Escolariedade
+            required>
+      <option value="1">Infantil</option>
+      <option value="2">Fundamental</option>
+      <option value="3">Médio e Superior</option>
+
+    </select>
+
+    <div class="invalid-feedback mb-2" *ngIf="Escolariedade.invalid && (Escolariedade.dirty || Escolariedade.touched)">
+      <div *ngIf="Escolariedade.errors.required">
+        Escolariedade é de preenchimento obrigatório
+      </div>
+      <div *ngIf="Escolariedade.errors.Escolariedade">
+        Escolariedade está no formato inválido
+      </div>
+    </div>
+
+
+
+
+
+    <div class="form-inline">
+
+      <button class="btn btn-primary" style="margin-right:4px;" (click)="cadastrar()" [disabled]="!formSign.valid">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner" ></span>
+        Salvar
+      </button>
+      <button class="btn btn-secondary" [routerLink]="['/pesquisar-usuario']">Cancelar</button>
+    </div>
+
+  </form>
+</div>
